@@ -12,43 +12,12 @@
     <link href="assets/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/stylesheets/default.css" rel="stylesheet" type="text/css" />
     <link href="assets/stylesheets/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
-    <script src="assets/jquery/jquery.min.js"></script>
-  </head>
-  <body>
-    <div class="ui inverted vertical center aligned segment">
-      <div class="ui container">
-        <div class="ui massive borderless inverted menu">
-          <h1 class="header item">
-            FigOrNaartjie
-          </h1>
-          <div class="right item">
-            <div class="ui massive secondary inverted pointing menu">
-              <a class="active item">Home</a>
-              <a class="item" href="cv.html">CV</a>
-              <a class="item" href="contact.html">Contact</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="ui text container">
-        <img 
-          src="image/logo-image.png"
-          style="width: 50%;"
-           />
-        <!-- <h1 class="ui inverted header">
-          Cover your page.
-        </h1>
-        <p>
-          Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
-        </p> -->
-        <!-- <div class="ui massive white button">
-          Learn more
-        </div> -->
-      </div>
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/jquery/sidebar.js"></script>
+    
     <style type="text/css">
-      .ui.inverted.vertical.segment {
-        height: 100vh;
+      body {
+        background-color: #1B1C1D;
       }
       .ui.inverted.vertical.segment h1.header.item {
         font-size: 2em;
@@ -57,8 +26,7 @@
         font-size: 1.2em;
       }
       .ui.inverted.vertical.segment .ui.text.container {
-        height: 300px;
-        position: absolute;
+        position: relative;
         top: 0;
         bottom: 0;
         left: 0;
@@ -83,6 +51,79 @@
       .ui.inverted.vertical.segment .ui.footer.segment a {
         color: white;
       }
+      .sidebar.icon {
+        display: none;
+      }
+
+      .ui.text.container img { margin-top: 20vh; }
+
+      @media only screen and (max-width: 700px) {
+        .ui.massive.secondary.inverted.pointing.menu {
+          display: none;
+        }
+        .sidebar.icon {
+          display: initial;
+          padding: 0px;
+        }
+        .toc.item {
+          top: 0px;
+          padding: 10px !important;
+        }
+        .right.item {
+          display: none;
+        }
+        h1.header.item { padding: 10px !important; }
+        body { width: 100%; }
+        .ui.text.container img { margin-top: 20vh; }
+      }
     </style>
+  </head>
+  <body>
+    <div class="ui vertical inverted sidebar menu">
+      <a class="active item">Home</a>
+      <a class="item" href="cv.html">Team</a>
+      <a class="item" href="contact.html">Contact</a>
+    </div>
+    <div class="ui inverted vertical center aligned segment pusher">
+      <div class="ui container">
+        <div class="ui massive borderless inverted menu">
+          <a class="toc item">
+            <i class="sidebar icon"></i>
+          </a>
+          <h1 class="header item">
+            FigOrNaartjie
+          </h1>
+          <div class="right item">
+            <div class="ui massive secondary inverted pointing menu">
+              <a class="active item">Home</a>
+              <a class="item" href="cv.html">Team</a>
+              <a class="item" href="contact.html">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui text container">
+        <img 
+          src="image/logo-image.png"
+          style="width: 50%;"
+           />
+        <!-- <h1 class="ui inverted header">
+          Cover your page.
+        </h1>
+        <p>
+          Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
+        </p> -->
+        <!-- <div class="ui massive white button">
+          Learn more
+        </div> -->
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        console.log($);
+        $('.ui.sidebar').sidebar('attach events', '.toc.item');
+      });
+    </script>
   </body>
 </html>

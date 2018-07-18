@@ -12,19 +12,83 @@
     <link href="assets/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/stylesheets/default.css" rel="stylesheet" type="text/css" />
     <link href="assets/stylesheets/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
-    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/jquery/sidebar.js"></script>
+    
+    <style type="text/css">
+      body {
+        background-color: #1B1C1D !important;
+      }
+      .ui.inverted.vertical.segment .ui.text.container {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      .sidebar.icon {
+        display: none;
+      }
+
+      @media only screen and (max-width: 767px) {
+        .contact {
+          text-align: center;
+        }
+        .contact.header {
+          text-align: center;
+        }
+        .ui.large.form {
+          width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .ui.image.container img{
+          margin-left:auto;
+          margin-right:auto;
+          width: 90%;
+        }
+      }
+
+      @media only screen and (max-width: 700px) {
+        .ui.massive.secondary.inverted.pointing.menu {
+          display: none;
+        }
+        .sidebar.icon {
+          display: initial;
+          padding: 0px;
+        }
+        .toc.item {
+          top: 0px;
+          padding: 10px !important;
+        }
+        .right.item {
+          display: none;
+        }
+        h1.header.item { padding: 10px !important; }
+        body { width: 100%; }
+      }
+    </style>
   </head>
   <body>
-    <div class="ui inverted vertical center aligned segment">
+    <div class="ui vertical inverted sidebar menu">
+      <a class="item" href="index.html">Home</a>
+      <a class="item" href="cv.html">Team</a>
+      <a class="active item">Contact</a>
+    </div>
+    <div class="ui inverted vertical center aligned segment pusher">
       <div class="ui container">
         <div class="ui massive borderless inverted menu">
+          <a class="toc item">
+            <i class="sidebar icon"></i>
+          </a>
           <h1 class="header item">
             FigOrNaartjie
           </h1>
           <div class="right item">
             <div class="ui massive secondary inverted pointing menu">
               <a class="item" href="index.html">Home</a>
-              <a class="item" href="cv.html">CV</a>
+              <a class="item" href="cv.html">Team</a>
               <a class="active item">Contact</a>
             </div>
           </div>
@@ -32,12 +96,12 @@
       </div>
       
       <div class="ui text container">
-        <div class="ui grid two column">
-          <div class="column left aligned" class="contact">
+        <div class="ui grid two column stackable">
+          <div class="column left aligned contact">
             <div class="contact header">CONTACT US</div>
             <div class="contact text">
               <div>Cape Town, South Africa</div>
-              <div>taariq [at] figornaartjie [dot] com</div>
+              <div>info [at] figornaartjie [dot] com</div>
               <div>+27780650129</div>
             </div>
           </div>
@@ -66,8 +130,8 @@
                     <textarea 
                       placeholder="message" 
                       name="message"
-                      rows="5">
-                    </textarea>
+                      value=""
+                      rows="5"></textarea>
                   </div>
                 </div>
                 
@@ -88,6 +152,12 @@
       </div>
       
     </div>
+    <script>
+      $(document).ready(function() {
+        console.log($);
+        $('.ui.sidebar').sidebar('attach events', '.toc.item');
+      });
+    </script>
     <style type="text/css">
       .ui.text.container {
         margin-top: 20px;
@@ -96,10 +166,12 @@
         width: 80%;
         margin-top: 20px;
       }
-      .ui.image.container  img{
-        margin-left:auto;
-        margin-right:auto;
-        width: 70%;
+      @media only screen and (min-width: 768px) {
+        .ui.image.container  img{
+          margin-left:auto;
+          margin-right:auto;
+          width: 70%;
+        }
       }
       .contact {
         color: grey;
@@ -112,7 +184,7 @@
         font-size: smaller;
       }
       .ui.inverted.vertical.segment {
-        height: 100%;
+        /* height: 100%; */
       }
       .ui.inverted.vertical.segment h1.header.item {
         font-size: 2em;

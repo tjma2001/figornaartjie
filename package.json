@@ -1,0 +1,25 @@
+{
+  "name": "figornaartjie.com",
+  "version": "1.0.0",
+  "description": "figornaartjie website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjma2001/figornaartjie.git"
+  },
+  "keywords": [
+    "figornaartjie"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tjma2001/figornaartjie/issues"
+  },
+  "homepage": "https://github.com/tjma2001/figornaartjie#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

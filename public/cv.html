@@ -8,23 +8,92 @@
     <meta content="Semantic-UI, Theme, Design, Template" name="keywords" />
     <meta content="PPType" name="author" />
     <meta content="#ffffff" name="theme-color" />
-    <title>CV</title>
+    <title>Team</title>
     <link href="assets/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/stylesheets/default.css" rel="stylesheet" type="text/css" />
     <link href="assets/stylesheets/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
-    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/jquery/sidebar.js"></script>
+    
+    <style type="text/css">
+      body {
+        background-color: #1B1C1D;
+      }
+      .ui.inverted.vertical.segment h1.header.item {
+        font-size: 2em;
+      }
+      .ui.inverted.vertical.segment a.item {
+        font-size: 1.2em;
+      }
+      .ui.inverted.vertical.segment .ui.text.container {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      .ui.inverted.vertical.segment .ui.text.container h1.header {
+        font-size: 3em;
+      }
+      .ui.inverted.vertical.segment .ui.text.container p {
+        font-size: 1.6em;
+        line-height: 1.6;
+      }
+      .ui.inverted.vertical.segment .ui.footer.segment {
+        height: 80px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        font-size: 1.2em;
+        color: gray;
+      }
+      .ui.inverted.vertical.segment .ui.footer.segment a {
+        color: white;
+      }
+      .sidebar.icon {
+        display: none;
+      }
+
+      @media only screen and (max-width: 700px) {
+        .ui.massive.secondary.inverted.pointing.menu {
+          display: none;
+        }
+        .sidebar.icon {
+          display: initial;
+          padding: 0px;
+        }
+        .toc.item {
+          top: 0px;
+          padding: 10px !important;
+        }
+        .right.item {
+          display: none;
+        }
+        h1.header.item { padding: 10px !important; }
+        body { width: 100%; }
+      }
+    </style>
   </head>
   <body>
-    <div class="ui inverted vertical center aligned segment">
+    <div class="ui vertical inverted sidebar menu">
+      <a class="item" href="index.html">Home</a>
+      <a class="active item" href="cv.html">Team</a>
+      <a class="item" href="contact.html">Contact</a>
+    </div>
+    <div class="ui inverted vertical center aligned segment pusher">
       <div class="ui container">
         <div class="ui massive borderless inverted menu">
+          <a class="toc item">
+            <i class="sidebar icon"></i>
+          </a>
           <h1 class="header item">
             FigOrNaartjie
           </h1>
           <div class="right item">
             <div class="ui massive secondary inverted pointing menu">
               <a class="item" href="index.html">Home</a>
-              <a class="active item">CV</a>
+              <a class="active item">Team</a>
               <a class="item" href="contact.html">Contact</a>
             </div>
           </div>
@@ -129,6 +198,12 @@
       </div>
       
     </div>
+    <script>
+      $(document).ready(function() {
+        console.log($);
+        $('.ui.sidebar').sidebar('attach events', '.toc.item');
+      });
+    </script>
     <style type="text/css">
       .achievement {
         margin-top: 20px;
@@ -169,22 +244,6 @@
       }
       .orange.text {
         color: rgb(247, 93, 93);
-      }
-      .ui.inverted.vertical.segment {
-        height: 125%;
-      }
-      .ui.inverted.vertical.segment h1.header.item {
-        font-size: 2em;
-      }
-      .ui.inverted.vertical.segment a.item {
-        font-size: 1.2em;
-      }
-      .ui.inverted.vertical.segment .ui.text.container h1.header {
-        font-size: 3em;
-      }
-      .ui.inverted.vertical.segment .ui.text.container p {
-        font-size: 1.6em;
-        line-height: 1.6;
       }
       .ui.inverted.vertical.segment .ui.footer.segment {
         height: 80px;
