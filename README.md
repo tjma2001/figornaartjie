@@ -7,4 +7,5 @@ Can be run with the node server or via simply clicking on the html files in the 
 ## RUN
 
 yarn install
+
 yarn
