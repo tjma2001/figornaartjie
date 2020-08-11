@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
+import { Hidden } from "@material-ui/core"
 
 const StyledLink = styled(Link)`
   align-items: center;
@@ -38,15 +39,17 @@ const StyledHeader = styled.div`
 
 const Header = ({ siteTitle }: { siteTitle: string }) => (
   <StyledHeader>
-    <div
-      style={{
-        maxWidth: 960,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <StyledLink to="/">{siteTitle}</StyledLink>
-      </h1>
-    </div>
+    <Hidden xsDown>
+      <div
+        style={{
+          maxWidth: 960,
+        }}
+      >
+        <h1 style={{ margin: 0 }}>
+          <StyledLink to="/">{siteTitle}</StyledLink>
+        </h1>
+      </div>
+    </Hidden>
 
     <Links>
       <StyledLink to="/">

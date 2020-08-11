@@ -17,19 +17,28 @@ const Content = styled.div`
 `
 
 const HeaderWrapper = styled.div`
-  background-color: black;
+  background-color: black !important;
   height: 100%;
+  width: 100%;
 `
 
-const LogoWrapper = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+const LogoInnerWrapper = styled.div`
+  display: block;
+  width: 100%;
 
   @media (min-width: 600px) {
+    max-height: 80%;
     max-width: 400px;
     min-height: 20rem;
   }
+`
+
+const LogoWrapper = styled.div`
+  background-color: black;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
 `
 
 const IndexPage = () => (
@@ -37,8 +46,10 @@ const IndexPage = () => (
     <SEO title="Home" />
     <Content>
       <HeaderWrapper>
-        <LogoWrapper>
-          <Logo />
+        <LogoWrapper id="logo-wrapper">
+          <LogoInnerWrapper>
+            <Logo />
+          </LogoInnerWrapper>
         </LogoWrapper>
       </HeaderWrapper>
     </Content>

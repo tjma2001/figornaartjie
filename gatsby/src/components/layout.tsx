@@ -16,23 +16,23 @@ import "./layout.css"
 
 const Content = styled.div`
   align-self: center;
-  // background-color: black;
   color: white;
-  flex-grow: 5;
-  max-width: 60rem;
-  height: calc(100% - 4.5rem);
+  flex: 1;
+  width: 100%;
 `
 
 const Footer = styled.footer`
-  flex-shrink: 1;
-  padding: 0.25rem;
+  background-color: black;
+  color: white;
+  max-height: 2rem;
+  padding: 0.25rem 0.25rem 0.25rem 1rem;
 `
 
-const Header = styled(header)`
-  flex-shrink: 1;
-`
+const Header = styled(header)``
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   height: 100%;
   min-height: 100%;
   min-width: 100%;
