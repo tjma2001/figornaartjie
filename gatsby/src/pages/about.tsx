@@ -67,12 +67,14 @@ const QualificationDate = styled.div`
 const QualificationDescription = styled.div`
   @media (min-width: 600px) {
     font-style: italic;
+    padding-left: 0.25rem;
   }
 `
 
 const QualificationInstitution = styled.div`
   font-size: 1.25rem;
   font-weight: 500;
+  width: 3rem;
 `
 
 const Skill = styled.div`
@@ -84,8 +86,8 @@ const Skill = styled.div`
 `
 
 const SkillDates = styled.div`
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 400;
 `
 
 const SkillTitle = styled.div`
@@ -182,7 +184,8 @@ const WorkExperience = (): JSX.Element => (
           <SkillTitle>{experience.title}</SkillTitle>
           <MB2 />
           <SkillTitleDescription>
-            - {experience.titleDescription}
+            <Hidden xsDown> - </Hidden>
+            {experience.titleDescription}
           </SkillTitleDescription>
         </SkillTitleWrapper>
         <MB8 />

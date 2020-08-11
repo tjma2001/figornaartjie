@@ -3,7 +3,14 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Button, TextField, SvgIcon } from "@material-ui/core"
+import {
+  Button,
+  TextField,
+  SvgIcon,
+  Card,
+  CardContent,
+  CardHeader,
+} from "@material-ui/core"
 
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxCBgwjNaiIkqX38fOfTxCd_1L2kAckj9N4b5pTkE0NTKbQan-h/exec"
@@ -19,6 +26,10 @@ const ButtonWrapper = styled.div`
 
 const MB24 = styled.div`
   margin-bottom: 1.5rem;
+`
+
+const StyledCard = styled(Card)`
+  padding: 1rem;
 `
 
 const StyledForm = styled.form`
@@ -99,46 +110,51 @@ const SecondPage = () => {
       <SEO title="Page two" />
       <Wrapper>
         {!submitSuccess && (
-          <StyledForm>
-            <TextField
-              label="Name"
-              name="Name"
-              onChange={e => setName(e.target.value)}
-              value={name}
-            />
-            <MB24 />
+          <StyledCard>
+            <CardHeader title="Contact Us" />
+            <CardContent>
+              <StyledForm>
+                <TextField
+                  label="Name"
+                  name="Name"
+                  onChange={e => setName(e.target.value)}
+                  value={name}
+                />
+                <MB24 />
 
-            <TextField
-              label="Email"
-              name="Email"
-              onChange={e => setEmail(e.target.value)}
-              value={email}
-            />
-            <MB24 />
+                <TextField
+                  label="Email"
+                  name="Email"
+                  onChange={e => setEmail(e.target.value)}
+                  value={email}
+                />
+                <MB24 />
 
-            <TextField
-              label="Message"
-              multiline
-              name="Message"
-              onChange={e => setMessage(e.target.value)}
-              rows={4}
-              value={message}
-            />
-            <MB24 />
+                <TextField
+                  label="Message"
+                  multiline
+                  name="Message"
+                  onChange={e => setMessage(e.target.value)}
+                  rows={4}
+                  value={message}
+                />
+                <MB24 />
 
-            <ButtonWrapper>
-              <Button
-                color="primary"
-                disabled={submitting}
-                onClick={(e): void => {
-                  submit(e)
-                }}
-                variant="contained"
-              >
-                submit{" "}
-              </Button>
-            </ButtonWrapper>
-          </StyledForm>
+                <ButtonWrapper>
+                  <Button
+                    color="primary"
+                    disabled={submitting}
+                    onClick={(e): void => {
+                      submit(e)
+                    }}
+                    variant="contained"
+                  >
+                    submit{" "}
+                  </Button>
+                </ButtonWrapper>
+              </StyledForm>
+            </CardContent>
+          </StyledCard>
         )}
         {submitSuccess && <SucessSubmitElement />}
       </Wrapper>

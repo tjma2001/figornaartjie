@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import styled, { createGlobalStyle } from "styled-components"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 import header from "./header"
@@ -60,7 +60,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </Helmet>
       <Header siteTitle={data.site.siteMetadata.title} />
       <Content>{children}</Content>
-      <Footer>© {new Date().getFullYear()}, FigOrNaartjie</Footer>
+      <Footer>
+        © {new Date().getFullYear()}, FigOrNaartjie. Cape Town. South Africa
+      </Footer>
     </Wrapper>
   )
 }

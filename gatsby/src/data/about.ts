@@ -1,18 +1,18 @@
 export const Qualifications = [
   {
-    institution: "UCT",
-    date: "January 2004 -Dec 2007",
-    description: "BSc Computer Science",
+    institution: "UWC",
+    date: "July  2018 -",
+    description: "PhD Computer Science",
   },
   {
     institution: "UCT",
-    date: "January 2004 -Dec 2007",
-    description: "BSc Computer Science",
+    date: "January  2013 - June 2014",
+    description: "Msc Computer Science",
   },
   {
     institution: "UCT",
-    date: "January 2004 -Dec 2007",
-    description: "BSc Computer Science",
+    date: "January  2012 - December 2012",
+    description: "BSc Hons Computer Science",
   },
   {
     institution: "UCT",
