@@ -1,0 +1,57 @@
+[{
+    "duration": "3 Months",
+    "name": "Root",
+    "companyDescription": "Root is a programmable bank.",
+    "workDescription": "Here I worked doing devops and infrastructure (CI/CD) setup for the company.",
+    "src": "./work-images/root.png"
+  },
+  {
+    "name": "AppStrax",
+    "duration": "2 Months",
+    "companyDescription": "AppStrax is a international software dev house based in Cape Town and Johannesburg.",
+    "workDescription": "For a short while, I was helping develop internal tools for the company to provision software to clients faster",
+    "src": "./work-images/appstrax.png"
+  },
+  {
+    "name": "Converlens",
+    "duration": "3 Months",
+    "companyDescription": "Converlens can transform data into meaningful insights using a wide range of sources",
+    "workDescription": "Devops and infrastructure setup.",
+    "src": "./work-images/converlens.png"
+  },
+  {
+    "name": "Kids Industries",
+    "duration": "1 week",
+    "companyDescription": "Kids Industries is the leading Research, Strategy and Creative Agency for the kids and family market in the UK.",
+    "workDescription": "Infrastructure audit for https://warriorcats.com",
+    "src": "./work-images/warriorcats.png"
+  },
+  {
+    "name": "Lula Loop",
+    "duration": "18 Months",
+    "companyDescription": "Ridesharing and delivery platform.",
+    "workDescription": "Here I worked as a senior software consultant. Project planning, CI/CD, sprint planning, infrastructure.",
+    "src": "./work-images/lulaloop.png"
+  },
+  {
+    "name": "Sensor networks",
+    "duration": "3 Months",
+    "companyDescription": "Sensor networks builds smart technology systems that improve people's lives by making insurance simple, convenient and affordable",
+    "workDescription": "Infrastructure audit.",
+    "src": "./work-images/sensornetworks.png"
+  },
+  {
+    "name": "Stich money",
+    "duration": "2 days",
+    "companyDescription": "Stitch offers API access to bank accounts in Africa",
+    "workDescription": "Reverse Engineering.",
+    "src": "./work-images/stitch.png"
+  },
+  {
+    "name": "HouseMe",
+    "duration": "12 months",
+    "companyDescription": "HouseME is the digital rental specialist, offering a better way to rent, loved by landlords and tenants.",
+    "workDescription": "Frontend React development.",
+    "src": "./work-images/houseme.png"
+  }
+]

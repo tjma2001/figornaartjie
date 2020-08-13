@@ -3,9 +3,12 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import { CardContent, Card } from "@material-ui/core"
 
-// import CompanyImage from "../components/CompanyImage"
 import Layout from "../components/layout"
 import { graphql, useStaticQuery } from "gatsby"
+
+const Blurb = styled.div`
+  padding: 1rem;
+`
 
 const CompanyContent = styled.div`
   display: flex;
@@ -21,10 +24,21 @@ const CompanyImage = styled.div`
 const ContentWrapper = styled.div`
   align-items: center;
   display: flex;
+  flex-direction: column;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `
 
 const Description = styled.div`
   margin-bottom: 0.25rem;
+`
+
+const Duration = styled.div`
+  font-size: 1rem;
+  font-weight: normal;
+  padding-left: 0.25rem;
 `
 
 const Image = styled.div`
@@ -34,14 +48,27 @@ const Image = styled.div`
   }
 `
 
+const MB8 = styled.div`
+  margin-bottom: 0.5rem;
+`
+
+const MB16SM0 = styled.div`
+  margin-bottom: 1rem;
+
+  @media (min-width: 600px) {
+    margin-bottom: 0;
+  }
+`
+
 const MB24 = styled.div`
   margin-bottom: 1.5rem;
 `
 
 const Name = styled.div`
+  align-items: baseline;
+  display: flex;
   font-size: 1.2rem;
   font-weight: 800;
-  padding-bottom: 0.125rem;
 `
 
 const Title = styled.span`
@@ -71,6 +98,7 @@ const WorkPage = (): JSX.Element => {
       companies: allWorkJson {
         nodes {
           companyDescription
+          duration
           name
           workDescription
           src {
@@ -90,10 +118,9 @@ const WorkPage = (): JSX.Element => {
   return (
     <Layout>
       <Wrapper>
-        <div>
-          Here is a list of some of the companies that I have worked with over
-          the past few years
-        </div>
+        <Blurb>
+          Here is a list of some of the projects that we have worked on.
+        </Blurb>
         <MB24 />
 
         {companies.map(company => (
@@ -108,12 +135,18 @@ const WorkPage = (): JSX.Element => {
                       )}
                     </CompanyImage>
                   </Image>
+                  <MB16SM0 />
                   <CompanyContent>
-                    <Name>{company.name}</Name>
+                    <Name>
+                      {company.name}
+                      <Duration>- {company.duration}</Duration>
+                    </Name>
+                    <MB8 />
                     <Description>
                       <Title>Description: </Title>
                       {company.companyDescription}
                     </Description>
+                    <MB8 />
                     <WorkDescription>
                       <Title>Role: </Title>
                       {company.workDescription}

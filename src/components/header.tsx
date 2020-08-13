@@ -58,11 +58,8 @@ const Header = ({ siteTitle }: { siteTitle: string }) => (
       </Hidden>
 
       <Links>
-        <StyledLink to="/">
-          <div>home</div>
-        </StyledLink>
-        <StyledLink to="/work">work</StyledLink>
-        <StyledLink to="/about">about</StyledLink>
+        <StyledLink to="/">home</StyledLink>
+        <StyledLink to="/contracts">contracts</StyledLink>
         <StyledLink to="/contact">contact</StyledLink>
       </Links>
     </HeaderWrapper>

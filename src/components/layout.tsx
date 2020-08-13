@@ -23,9 +23,18 @@ const Content = styled.div`
 
 const Footer = styled.footer`
   background-color: black;
+  border: 1px solid black;
   color: white;
-  max-height: 2rem;
-  padding: 0.25rem 0.25rem 0.25rem 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 0.75rem;
+  justify-content: center;
+  padding: 0.25rem 1rem;
+`
+
+const FooterContent = styled.div`
+  text-align: justify;
+  text-justify: inter-word;
 `
 
 const Header = styled(header)``
@@ -65,19 +74,21 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <Content>{children}</Content>
       <Footer>
-        © {new Date().getFullYear()}, FigOrNaartjie. Cape Town. South Africa.
-        Built with{" "}
-        <StyledLink href="https://www.gatsbyjs.org/" target="_blank">
-          Gatsby
-        </StyledLink>
-        . Hosting via{" "}
-        <StyledLink href="https://netlify.com" target="_blank">
-          Netlify.
-        </StyledLink>
-        &nbsp;
-        <StyledLink href="https://github.com/tjma2001/figornaartjie">
-          Github Source
-        </StyledLink>
+        <FooterContent>
+          © {new Date().getFullYear()}, FigOrNaartjie. Cape Town. South Africa.
+          Built with&nbsp;
+          <StyledLink href="https://www.gatsbyjs.org/" target="_blank">
+            Gatsby
+          </StyledLink>
+          . Hosting via{" "}
+          <StyledLink href="https://netlify.com" target="_blank">
+            Netlify.
+          </StyledLink>
+          &nbsp;
+          <StyledLink href="https://github.com/tjma2001/figornaartjie">
+            Github Source
+          </StyledLink>
+        </FooterContent>
       </Footer>
     </Wrapper>
   )
