@@ -36,15 +36,15 @@ const MB32 = styled.div`
   margin-bottom: 2rem;
 `
 
+const MB40 = styled.div`
+  margin-bottom: 2.5rem;
+`
+
 const PublicationsTitle = styled.span`
   font-weight: 500;
 `
 
-const PublicationsWrapper = styled.div`
-  @media (min-width: 600px) {
-    padding-left: 0.25rem;
-  }
-`
+const PublicationsWrapper = styled.div``
 
 const QualificationWrapper = styled.div`
   display: flex;
@@ -53,7 +53,6 @@ const QualificationWrapper = styled.div`
   @media (min-width: 600px) {
     align-items: flex-end;
     flex-direction: row;
-    padding-left: 0.5rem;
   }
 `
 const QualificationDate = styled.div`
@@ -79,10 +78,6 @@ const QualificationInstitution = styled.div`
 
 const Skill = styled.div`
   margin-left: 0;
-
-  @media (min-width: 600px) {
-    margin-left: 0.5rem;
-  }
 `
 
 const SkillDates = styled.div`
@@ -212,17 +207,17 @@ const SecondPage = () => (
             the entire lifecycle of a project. This applies to the entire stack
             from project conception, continuous integration and deployment.
           </div>
-          <MB32 />
+          <MB40 />
 
           <Title>Experience</Title>
           <MB16 />
           <WorkExperience />
-          <MB32 />
+          <MB40 />
 
           <Title>Education</Title>
           <MB16 />
           <Education />
-          <MB32 />
+          <MB40 />
 
           <Title>Research Publications</Title>
           <MB16 />
