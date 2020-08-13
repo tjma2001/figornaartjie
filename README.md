@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://figornaartjie.com">
-    <img alt="figornaartjie" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+    <img alt="figornaartjie" src="https://i.imgur.com/kpVufPm.png?1" width="60" />
   </a>
 </p>
 <h1 align="center">
