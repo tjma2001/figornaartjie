@@ -1,7 +1,13 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+// exports.onCreateNode = ({ node, actions }) => {
+//   const { createNodeField } = actions
 
-// You can delete this file if you're not using it
+//   if (node.internal.type === "WorkJson") {
+//     const value = createFilePath({ node, getNode })
+
+//     createNodeField({
+//       node,
+//       name: "companyImage",
+//       value,
+//     })
+//   }
+// }

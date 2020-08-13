@@ -30,6 +30,10 @@ const Footer = styled.footer`
 
 const Header = styled(header)``
 
+const StyledLink = styled.a`
+  color: skyblue;
+`
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -61,7 +65,19 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <Content>{children}</Content>
       <Footer>
-        © {new Date().getFullYear()}, FigOrNaartjie. Cape Town. South Africa
+        © {new Date().getFullYear()}, FigOrNaartjie. Cape Town. South Africa.
+        Built with{" "}
+        <StyledLink href="https://www.gatsbyjs.org/" target="_blank">
+          Gatsby
+        </StyledLink>
+        . Hosting via{" "}
+        <StyledLink href="https://netlify.com" target="_blank">
+          Netlify.
+        </StyledLink>
+        &nbsp;
+        <StyledLink href="https://github.com/tjma2001/figornaartjie">
+          Github Source
+        </StyledLink>
       </Footer>
     </Wrapper>
   )

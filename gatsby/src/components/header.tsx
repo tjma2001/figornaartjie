@@ -61,6 +61,7 @@ const Header = ({ siteTitle }: { siteTitle: string }) => (
         <StyledLink to="/">
           <div>home</div>
         </StyledLink>
+        <StyledLink to="/work">work</StyledLink>
         <StyledLink to="/about">about</StyledLink>
         <StyledLink to="/contact">contact</StyledLink>
       </Links>
