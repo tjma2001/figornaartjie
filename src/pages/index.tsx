@@ -1,17 +1,20 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
 
-import Layout from "../components/layout"
-import Logo from "../components/logo"
-import SEO from "../components/seo"
-import { Card, CardContent, CardMedia } from "@material-ui/core"
+import Layout from '../components/layout'
+import Logo from '../components/logo'
+import SEO from '../components/seo'
+import { Card, CardContent, CardMedia } from '@material-ui/core'
+import ReceiptsAndInvoices from '../components/ReceiptsAndInvoices'
 
 const VALUES = [
-  "We deliver high-quality software solutions that aren’t late and over budget. Too often projects suffer from bloated scope creep. We ensure that the considerations of our clients are always well managed while keeping an eye on the time and budget constraints, delivering quality software solutions to spec.",
-  "Our lean and experienced team ensures that more money can be spent on building quality software instead of wasted human overheads. Our differentiator is the quality of our developers with a wide depth of experience in spanning multiple industries.",
-  "Our highly skilled DevOps and engineering team ensure that your projects are structured for growth. Having broad experience over many container and continuous integration software solutions, we can get you to the cloud faster.",
+  'We deliver high-quality software solutions on-time and within budget.  We ensure that the considerations of our clients are always well managed while keeping an eye on the time and budget constraints, delivering quality software solutions to spec.',
+  'Our lean and experienced team ensures that more money can be spent on building quality software instead of wasted human overheads. Our differentiator is the quality of our developers with a wide depth of experience in spanning multiple industries.',
+  'Our highly skilled DevOps and engineering team ensure that your projects are structured for growth. Having broad experience over many container and continuous integration software solutions, we can get you to the cloud faster.'
 ]
+
+const AnnouncementCard = styled(Card)``
 
 const CallToAction = styled.div`
   color: black;
@@ -91,6 +94,14 @@ const Values = styled.div`
   }
 `
 
+const Announcement = (): JSX.Element => (
+  <Card>
+    <CardContent>
+      <ReceiptsAndInvoices />
+    </CardContent>
+  </Card>
+)
+
 const Value = ({ content }: { content: string }): JSX.Element => (
   <StyledCard>
     <StyledCardContent>{content}</StyledCardContent>
@@ -99,11 +110,11 @@ const Value = ({ content }: { content: string }): JSX.Element => (
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title='Home' />
     <Content>
       <HeaderWrapper>
         <Title>High quality bespoke software development</Title>
-        <LogoWrapper id="logo-wrapper">
+        <LogoWrapper id='logo-wrapper'>
           <LogoInnerWrapper>
             <Logo />
           </LogoInnerWrapper>
@@ -115,9 +126,11 @@ const IndexPage = () => (
         </Values>
       </HeaderWrapper>
       <CallToAction>
-        Please <Link to="/contact">contact us</Link> if you are interested in
+        Please <Link to='/contact'>contact us</Link> if you are interested in
         our services. We will be happy to answer any questions you might have.
       </CallToAction>
+
+      {/* <Announcement /> */}
     </Content>
   </Layout>
 )
