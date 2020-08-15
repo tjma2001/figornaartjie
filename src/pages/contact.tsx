@@ -10,7 +10,9 @@ import {
   Card,
   CardContent,
   CardHeader,
+  CardMedia,
 } from "@material-ui/core"
+import Logo from "../components/logo"
 
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxCBgwjNaiIkqX38fOfTxCd_1L2kAckj9N4b5pTkE0NTKbQan-h/exec"
@@ -24,17 +26,37 @@ const ButtonWrapper = styled.div`
   justify-content: flex-end;
 `
 
+const Blurb = styled.div`
+  font-size: 1.2rem;
+  padding: 2rem 0;
+`
+
+const LogoWrapper = styled.div`
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+`
+
 const MB24 = styled.div`
   margin-bottom: 1.5rem;
 `
 
-const StyledCard = styled(Card)`
-  padding: 1rem;
+const StyledCard = styled(Card)``
+
+const StyledCardContent = styled(CardContent)`
+  margin: 0;
+  padding: 0;
 `
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  padding: 2rem;
+`
+
+const InnerLogoWrapper = styled.div`
+  width: 50%;
 `
 
 const SuccessSvgIcon = styled(SvgIcon)`
@@ -111,9 +133,17 @@ const SecondPage = () => {
       <Wrapper>
         {!submitSuccess && (
           <StyledCard>
-            <CardHeader title="Contact Us" />
-            <CardContent>
+            <StyledCardContent>
+              <LogoWrapper>
+                <InnerLogoWrapper>
+                  <Logo />
+                </InnerLogoWrapper>
+              </LogoWrapper>
               <StyledForm>
+                <Blurb>
+                  Please feel free to contact us using the form below to get in
+                  touch with us.
+                </Blurb>
                 <TextField
                   label="Name"
                   name="Name"
@@ -153,7 +183,7 @@ const SecondPage = () => {
                   </Button>
                 </ButtonWrapper>
               </StyledForm>
-            </CardContent>
+            </StyledCardContent>
           </StyledCard>
         )}
         {submitSuccess && <SucessSubmitElement />}
