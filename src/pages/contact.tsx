@@ -141,8 +141,7 @@ const SecondPage = () => {
               </LogoWrapper>
               <StyledForm>
                 <Blurb>
-                  Please feel free to contact us using the form below to get in
-                  touch with us.
+                  Please feel free to contact us using the form below.
                 </Blurb>
                 <TextField
                   label="Name"
