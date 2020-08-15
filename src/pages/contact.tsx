@@ -42,7 +42,13 @@ const MB24 = styled.div`
   margin-bottom: 1.5rem;
 `
 
-const StyledCard = styled(Card)``
+const StyledCard = styled(Card)`
+  border-radius: 0;
+
+  @media (min-width: 600px) {
+    border-radius: 6px;
+  }
+`
 
 const StyledCardContent = styled(CardContent)`
   margin: 0;
@@ -79,7 +85,10 @@ const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 40rem;
-  padding: 2rem;
+
+  @media (min-width: 600px) {
+    padding: 2rem;
+  }
 `
 
 const SucessSubmitElement = (): JSX.Element => (
