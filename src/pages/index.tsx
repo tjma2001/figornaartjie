@@ -8,9 +8,9 @@ import SEO from "../components/seo"
 import { Card, CardContent, CardMedia } from "@material-ui/core"
 
 const VALUES = [
-  "We deliver high quality software solutions that aren’t late and over budget. Too often projects suffer from bloated scope creep. We ensure that the considerations of our clients are always well managed, while keeping an eye on time and budget constraints, delivering quality software solutions to spec.",
-  "Our lean and experienced team ensures that more money can be spent on building quality software instead of wasted human overheads.",
-  "Our highly skilled DevOps and engineering team ensure that your projects are structured for growth. Having broad experience over a number of container and continuous integration software solutions, we can get you to the cloud faster.",
+  "We deliver high-quality software solutions that aren’t late and over budget. Too often projects suffer from bloated scope creep. We ensure that the considerations of our clients are always well managed while keeping an eye on the time and budget constraints, delivering quality software solutions to spec.",
+  "Our lean and experienced team ensures that more money can be spent on building quality software instead of wasted human overheads. Our differentiator is the quality of our developers with a wide depth of experience in spanning multiple industries.",
+  "Our highly skilled DevOps and engineering team ensure that your projects are structured for growth. Having broad experience over many container and continuous integration software solutions, we can get you to the cloud faster.",
 ]
 
 const CallToAction = styled.div`
