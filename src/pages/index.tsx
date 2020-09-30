@@ -1,25 +1,42 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import styled from 'styled-components'
+import React from "react"
+import { Link } from "gatsby"
+import styled from "styled-components"
+import { Button, Card, CardContent } from "@material-ui/core"
 
-import Layout from '../components/layout'
-import Logo from '../components/logo'
-import SEO from '../components/seo'
-import { Card, CardContent, CardMedia } from '@material-ui/core'
-import ReceiptsAndInvoices from '../components/ReceiptsAndInvoices'
+import Layout from "../components/layout"
+import Logo from "../components/logo"
+import ReceiptsAndInvoices from "../components/ReceiptsAndInvoices"
+import SEO from "../components/seo"
+import Terminal from "../components/Terminal"
+import Value from "../components/Value"
 
 const VALUES = [
-  'We deliver high-quality software solutions on-time and within budget.  We ensure that the considerations of our clients are always well managed while keeping an eye on the time and budget constraints, delivering quality software solutions to spec.',
-  'Our lean and experienced team ensures that more money can be spent on building quality software instead of wasted human overheads. Our differentiator is the quality of our developers with a wide depth of experience in spanning multiple industries.',
-  'Our highly skilled DevOps and engineering team ensure that your projects are structured for growth. Having broad experience over many container and continuous integration software solutions, we can get you to the cloud faster.'
+  {
+    title: "Iterate quickly",
+    conent:
+      "We specialize in helping companies develop early stage product prototypes and experimental workflows. With our quick execution time, we can quickly help you discover if a product idea or workflow pipeline works for you.",
+  },
+  {
+    title: "Research driven",
+    conent:
+      "Outsource research tasks to us for concise reporting that will empower your organization and allow you to stay focused. Don’t spend your organization’s precious resources on tasks that are not part of your core business offering",
+  },
+  {
+    title: "Save time",
+    conent:
+      "Eliminate wasted opportunity costs that take dedicated resources off task by focussing on what you do best. Reduce costs and time to market by ensuring that your core team is always on track. We will handle everything else.",
+  },
 ]
-
-const AnnouncementCard = styled(Card)``
 
 const CallToAction = styled.div`
   color: black;
   margin: 2rem 1rem;
   text-align: center;
+`
+
+const ContactButton = styled(Button)`
+  font-size: 2rem;
+  text-transform: none;
 `
 
 const Content = styled.div`
@@ -33,65 +50,59 @@ const Content = styled.div`
 `
 
 const HeaderWrapper = styled.div`
+  align-items: center;
   background-color: black !important;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
   width: 100%;
 `
 
-const LogoInnerWrapper = styled.div`
-  display: block;
-  width: 100%;
-
-  @media (min-width: 600px) {
-    max-height: 80%;
-    max-width: 400px;
-    min-height: 20rem;
-  }
+const MB24 = styled.div`
+  margin-bottom: 1.5rem;
 `
 
-const LogoWrapper = styled.div`
-  background-color: black;
-  align-items: center;
-  display: flex;
-  justify-content: center;
+const MB32 = styled.div`
+  margin-bottom: 2rem;
 `
 
-const StyledCard = styled(Card)`
-  background-color: rgba(255, 255, 255, 0.245);
-  border: 1px solid rgba(255, 255, 255, 0.145);
-  border-radium: 6px;
-  color: white;
-  margin: 1rem;
-  height: 12rem;
-  width: 90%;
-
-  @media (min-width: 600px) {
-    width: 18rem;
-  }
+const MB40 = styled.div`
+  margin-bottom: 2.5rem;
 `
 
-const StyledCardContent = styled(CardContent)`
-  align-items: center;
-  display: flex;
-  height: 100%;
+const MB60 = styled.div`
+  margin-bottom: 3.75rem;
+`
+
+const SubTitle = styled.div`
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 8rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60rem;
+  text-align: center;
 `
 
 const Title = styled.div`
-  font-size: 2rem;
+  font-size: 3rem;
   padding: 2rem;
-  padding-bottom: 4rem;
   text-align: center;
 `
 
 const Values = styled.div`
   align-items: center;
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 80rem;
+`
 
-  @media (min-width: 600px) {
-    flex-direction: row;
-  }
+const ValueWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 0 4rem;
 `
 
 const Announcement = (): JSX.Element => (
@@ -102,31 +113,44 @@ const Announcement = (): JSX.Element => (
   </Card>
 )
 
-const Value = ({ content }: { content: string }): JSX.Element => (
-  <StyledCard>
-    <StyledCardContent>{content}</StyledCardContent>
-  </StyledCard>
-)
-
 const IndexPage = () => (
   <Layout>
-    <SEO title='Home' />
+    <SEO title="Home" />
     <Content>
       <HeaderWrapper>
-        <Title>High quality bespoke software development</Title>
-        <LogoWrapper id='logo-wrapper'>
-          <LogoInnerWrapper>
-            <Logo />
-          </LogoInnerWrapper>
-        </LogoWrapper>
+        <Title>Rapid prototype and workflow development</Title>
+        <MB60 />
+
+        <SubTitle>
+          We are a research first company the executes rapid prototypes and
+          experimental workflows to accelerate your business.
+        </SubTitle>
+        <Terminal />
+        <MB60 />
+
+        <ContactButton color="primary" variant="contained">
+          Contact us
+        </ContactButton>
+      </HeaderWrapper>
+      <MB32 />
+
+      <ValueWrapper>
         <Values>
-          {VALUES.map(value => (
-            <Value content={value} />
+          {VALUES.map((value, index) => (
+            <MB60>
+              <Value
+                content={value.conent}
+                image=""
+                index={index}
+                title={value.title}
+              />
+            </MB60>
           ))}
         </Values>
-      </HeaderWrapper>
+      </ValueWrapper>
+
       <CallToAction>
-        Please <Link to='/contact'>contact us</Link> if you are interested in
+        Please <Link to="/contact">contact us</Link> if you are interested in
         our services. We will be happy to answer any questions you might have.
       </CallToAction>
 
