@@ -12,19 +12,22 @@ import Value from "../components/Value"
 
 const VALUES = [
   {
-    title: "Iterate quickly",
-    conent:
+    content:
       "We specialize in helping companies develop early stage product prototypes and experimental workflows. With our quick execution time, we can quickly help you discover if a product idea or workflow pipeline works for you.",
+    image: "prototype",
+    title: "Iterate quickly",
   },
   {
-    title: "Research driven",
-    conent:
+    content:
       "Outsource research tasks to us for concise reporting that will empower your organization and allow you to stay focused. Don’t spend your organization’s precious resources on tasks that are not part of your core business offering",
+    image: "research",
+    title: "Research driven",
   },
   {
-    title: "Save time",
-    conent:
+    content:
       "Eliminate wasted opportunity costs that take dedicated resources off task by focussing on what you do best. Reduce costs and time to market by ensuring that your core team is always on track. We will handle everything else.",
+    image: "time",
+    title: "Save time",
   },
 ]
 
@@ -102,7 +105,7 @@ const Values = styled.div`
 const ValueWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin: 0 4rem;
+  margin: 0 8rem;
 `
 
 const Announcement = (): JSX.Element => (
@@ -126,25 +129,25 @@ const IndexPage = () => (
           experimental workflows to accelerate your business.
         </SubTitle>
         <Terminal />
-        <MB60 />
+        <MB40 />
 
         <ContactButton color="primary" variant="contained">
           Contact us
         </ContactButton>
       </HeaderWrapper>
-      <MB32 />
+      <MB40 />
 
       <ValueWrapper>
         <Values>
           {VALUES.map((value, index) => (
-            <MB60>
+            <MB24 key={index}>
               <Value
-                content={value.conent}
-                image=""
+                content={value.content}
+                image={value.image}
                 index={index}
                 title={value.title}
               />
-            </MB60>
+            </MB24>
           ))}
         </Values>
       </ValueWrapper>

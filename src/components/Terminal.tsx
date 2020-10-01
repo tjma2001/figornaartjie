@@ -47,7 +47,7 @@ export default function Terminal(): JSX.Element {
 
   return (
     <TerminalWrapper>
-      <TerminalTitleBar>figornaartjie - bash - 80x10</TerminalTitleBar>
+      <TerminalTitleBar>figornaartjie - bash - 640x10</TerminalTitleBar>
       <TerminalContent>
         <TerminalStart>$</TerminalStart>
         <StyledTyped
