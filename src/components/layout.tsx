@@ -28,8 +28,10 @@ const Footer = styled.footer`
   display: flex;
   flex-flow: row wrap;
   font-size: 0.75rem;
+  height: 1.5rem;
+  min-height: 1.6rem;
   justify-content: center;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 1.25rem;
 `
 
 const FooterContent = styled.div`
@@ -85,9 +87,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             Netlify.
           </StyledLink>
           &nbsp;
-          <StyledLink href="https://github.com/tjma2001/figornaartjie">
+          {/* <StyledLink href="https://github.com/tjma2001/figornaartjie">
             Github Source
-          </StyledLink>
+          </StyledLink> */}
         </FooterContent>
       </Footer>
     </Wrapper>

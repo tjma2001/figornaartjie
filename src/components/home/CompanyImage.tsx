@@ -1,9 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import Img, { FluidObject } from "gatsby-image"
 
 interface Props {
-  src: string
+  src: FluidObject
 }
 
 const Image = ({ src }: Props): JSX.Element => {

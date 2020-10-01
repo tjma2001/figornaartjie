@@ -1,37 +1,39 @@
 import React from "react"
 import styled from "styled-components"
 
-import Prototype from "../components/images/Prototype"
-import Research from "../components/images/Research"
-import Time from "../components/images/Time"
+import Prototype from "../images/Prototype"
+import Research from "../images/Research"
+import Time from "../images/Time"
 
 const Content = styled.div`
   font-size: 1.25rem;
   line-height: 1.5rem;
+  max-width: 70rem;
   text-align: justify;
   text-justify: inter-word;
 `
 
 const ImageWrapper = styled.div<{ reverse?: boolean }>`
+  align-items: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-left: ${({ reverse }) => (reverse ? "2rem" : "0")};
   margin-right: ${({ reverse }) => (reverse ? "0" : "2rem")};
   width: 50rem;
 
-  &:after {
+  &:before {
     background-color: rba(0, 0, 0, 0);
-    border-radius: 40px;
-    box-shadow: rgba(0, 0, 0, 0.8) 0px 160px 50px 0px;
+    border-radius: 100px / 50px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 175px 80px 0px;
     content: " ";
-    height: 80px;
+    height: 100px;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 4rem;
-    position: relative;
-    top: -180px;
-    width: 60%;
-    z-index: -1;
+    position: absolute;
+    top: 0px;
+    width: 200px;
   }
 `
 
@@ -46,6 +48,7 @@ const StyledCard = styled.div``
 const StyledCardContent = styled.div<{ reverse?: boolean }>`
   align-items: center;
   display: flex;
+  justify-content: space-evenly;
   flex-direction: ${({ reverse }) => (reverse ? "row-reverse" : "row ")};
   position: relative;
 `
@@ -56,7 +59,7 @@ const TextWrapper = styled.div`
 `
 
 const Title = styled.div`
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 600;
 `
 

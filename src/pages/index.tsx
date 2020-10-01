@@ -1,14 +1,16 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import { Button, Card, CardContent } from "@material-ui/core"
 
+import CompaniesList from "../components/home/Companies"
 import Layout from "../components/layout"
 import Logo from "../components/logo"
 import ReceiptsAndInvoices from "../components/ReceiptsAndInvoices"
 import SEO from "../components/seo"
-import Terminal from "../components/Terminal"
-import Value from "../components/Value"
+import Terminal from "../components/home/Terminal"
+import Value from "../components/home/Value"
+import Contact from "../components/home/contact"
 
 const VALUES = [
   {
@@ -52,6 +54,24 @@ const Content = styled.div`
   width: 100%;
 `
 
+const Companies = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const CompaniesWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  padding: 2rem 0;
+`
+
+const CompaniesTitleText = styled.div`
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+`
+
 const HeaderWrapper = styled.div`
   align-items: center;
   background-color: black !important;
@@ -77,6 +97,10 @@ const MB60 = styled.div`
   margin-bottom: 3.75rem;
 `
 
+const MB80 = styled.div`
+  margin-bottom: 5rem;
+`
+
 const SubTitle = styled.div`
   font-size: 1.5rem;
   line-height: 2rem;
@@ -88,9 +112,15 @@ const SubTitle = styled.div`
 `
 
 const Title = styled.div`
-  font-size: 3rem;
+  font-size: 4rem;
   padding: 2rem;
   text-align: center;
+`
+
+const SubTitleBlack = styled.div`
+  color: black;
+  font-size: 3.5rem;
+  font-weight: 600;
 `
 
 const Values = styled.div`
@@ -103,7 +133,9 @@ const Values = styled.div`
 `
 
 const ValueWrapper = styled.div`
+  align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 0 8rem;
 `
@@ -116,50 +148,67 @@ const Announcement = (): JSX.Element => (
   </Card>
 )
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Content>
-      <HeaderWrapper>
-        <Title>Rapid prototype and workflow development</Title>
-        <MB60 />
+const IndexPage = () => {
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Content>
+        <HeaderWrapper>
+          <Title>Rapid prototype and workflow development</Title>
+          <MB60 />
 
-        <SubTitle>
-          We are a research first company the executes rapid prototypes and
-          experimental workflows to accelerate your business.
-        </SubTitle>
-        <Terminal />
+          <SubTitle>
+            We are a research first company the executes rapid prototypes and
+            experimental workflows to accelerate your business.
+          </SubTitle>
+          <Terminal />
+          <MB80 />
+
+          <ContactButton color="primary" variant="contained">
+            Contact us
+          </ContactButton>
+          <MB60 />
+
+          <Companies>
+            <CompaniesTitleText>
+              We have helped some really great companies.
+            </CompaniesTitleText>
+            <MB24 />
+            <CompaniesList />
+          </Companies>
+        </HeaderWrapper>
         <MB40 />
 
-        <ContactButton color="primary" variant="contained">
-          Contact us
-        </ContactButton>
-      </HeaderWrapper>
-      <MB40 />
+        <ValueWrapper>
+          <SubTitleBlack>We can help accelerate your business.</SubTitleBlack>
+          <MB80 />
+          <Values>
+            {VALUES.map((value, index) => (
+              <MB24 key={index}>
+                <Value
+                  content={value.content}
+                  image={value.image}
+                  index={index}
+                  title={value.title}
+                />
+              </MB24>
+            ))}
+          </Values>
+        </ValueWrapper>
 
-      <ValueWrapper>
-        <Values>
-          {VALUES.map((value, index) => (
-            <MB24 key={index}>
-              <Value
-                content={value.content}
-                image={value.image}
-                index={index}
-                title={value.title}
-              />
-            </MB24>
-          ))}
-        </Values>
-      </ValueWrapper>
+        <CompaniesWrapper>
+          <CompaniesList />
+        </CompaniesWrapper>
 
-      <CallToAction>
-        Please <Link to="/contact">contact us</Link> if you are interested in
-        our services. We will be happy to answer any questions you might have.
-      </CallToAction>
+        <CallToAction id="contact">
+          {/* Please <Link to="/contact">contact us</Link> if you are interested in
+          our services. We will be happy to answer any questions you might have. */}
+          <Contact />
+        </CallToAction>
 
-      {/* <Announcement /> */}
-    </Content>
-  </Layout>
-)
-
+        {/* <Announcement /> */}
+      </Content>
+    </Layout>
+  )
+}
 export default IndexPage

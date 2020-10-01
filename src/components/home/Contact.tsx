@@ -1,18 +1,8 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import {
-  Button,
-  TextField,
-  SvgIcon,
-  Card,
-  CardContent,
-  CardHeader,
-  CardMedia,
-} from "@material-ui/core"
-import Logo from "../components/logo"
+import { Button, TextField, SvgIcon, CardContent } from "@material-ui/core"
+import Logo from "../logo"
 
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxCBgwjNaiIkqX38fOfTxCd_1L2kAckj9N4b5pTkE0NTKbQan-h/exec"
@@ -22,13 +12,22 @@ const successSvg = (
 )
 
 const ButtonWrapper = styled.div`
+  align-items: flex-end;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
 `
 
 const Blurb = styled.div`
-  font-size: 1.2rem;
+  font-size: 2rem;
+  font-weight: 500;
   padding: 2rem 0;
+  text-align: left;
+  width: 100%;
+`
+
+const ContactButton = styled(Button)`
+  font-size: 2rem;
+  text-transform: none;
 `
 
 const LogoWrapper = styled.div`
@@ -38,16 +37,16 @@ const LogoWrapper = styled.div`
   padding-top: 1rem;
 `
 
+const MB16 = styled.div`
+  margin-bottom: 1rem;
+`
+
 const MB24 = styled.div`
   margin-bottom: 1.5rem;
 `
 
-const StyledCard = styled(Card)`
-  border-radius: 0;
-
-  @media (min-width: 600px) {
-    border-radius: 6px;
-  }
+const MB40 = styled.div`
+  margin-bottom: 3.75rem;
 `
 
 const StyledCardContent = styled(CardContent)`
@@ -84,7 +83,7 @@ const SuccessWrapper = styled.div`
 const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
-  max-width: 40rem;
+  max-width: 70rem;
 
   @media (min-width: 600px) {
     padding: 2rem;
@@ -102,7 +101,7 @@ const SucessSubmitElement = (): JSX.Element => (
   </SuccessWrapper>
 )
 
-const SecondPage = () => {
+export default function Contact(): JSX.Element {
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
   const [name, setName] = useState("")
@@ -136,68 +135,63 @@ const SecondPage = () => {
     }
   }
 
+  const validForm = email.length > 5 && name.length > 1 && message.length > 10
+
   return (
-    <Layout>
-      <SEO title="Page two" />
-      <Wrapper>
-        {!submitSuccess && (
-          <StyledCard>
-            <StyledCardContent>
-              <LogoWrapper>
-                <InnerLogoWrapper>
-                  <Logo />
-                </InnerLogoWrapper>
-              </LogoWrapper>
-              <StyledForm>
-                <Blurb>
-                  Please feel free to contact us using the form below.
-                </Blurb>
-                <TextField
-                  label="Name"
-                  name="Name"
-                  onChange={e => setName(e.target.value)}
-                  value={name}
-                />
-                <MB24 />
+    <Wrapper>
+      {!submitSuccess && (
+        <StyledCardContent>
+          <StyledForm>
+            <Blurb>
+              Use the contact form below to get intouch with us and see how we
+              can help your business.
+            </Blurb>
+            <TextField
+              label="Name"
+              name="Name"
+              onChange={e => setName(e.target.value)}
+              value={name}
+            />
+            <MB40 />
 
-                <TextField
-                  label="Email"
-                  name="Email"
-                  onChange={e => setEmail(e.target.value)}
-                  value={email}
-                />
-                <MB24 />
+            <TextField
+              label="Email"
+              name="Email"
+              onChange={e => setEmail(e.target.value)}
+              value={email}
+            />
+            <MB40 />
 
-                <TextField
-                  label="Message"
-                  multiline
-                  name="Message"
-                  onChange={e => setMessage(e.target.value)}
-                  rows={4}
-                  value={message}
-                />
-                <MB24 />
+            <TextField
+              label="Message"
+              helperText={`${message.length}/10`}
+              error={message.length > 0 && message.length < 10}
+              multiline
+              name="Message"
+              onChange={e => setMessage(e.target.value)}
+              rows={4}
+              value={message}
+            />
+            <MB40 />
 
-                <ButtonWrapper>
-                  <Button
-                    color="primary"
-                    disabled={submitting}
-                    onClick={(e): void => {
-                      submit(e)
-                    }}
-                    variant="contained"
-                  >
-                    submit{" "}
-                  </Button>
-                </ButtonWrapper>
-              </StyledForm>
-            </StyledCardContent>
-          </StyledCard>
-        )}
-        {submitSuccess && <SucessSubmitElement />}
-      </Wrapper>
-    </Layout>
+            <ButtonWrapper>
+              <ContactButton
+                color="primary"
+                disabled={submitting || !validForm}
+                onClick={(e): void => {
+                  submit(e)
+                }}
+                variant="contained"
+              >
+                Contact{" "}
+              </ContactButton>
+              <MB16 />
+              <div>All fields should be filled in for the form to be valid</div>
+            </ButtonWrapper>
+          </StyledForm>
+        </StyledCardContent>
+      )}
+      {submitSuccess && <SucessSubmitElement />}
+    </Wrapper>
   )
 }
-
-export default SecondPage
