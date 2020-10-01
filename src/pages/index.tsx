@@ -1,16 +1,14 @@
 import React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import { Box, Button, Card, CardContent } from "@material-ui/core"
 
 import CompaniesList from "../components/home/Companies"
 import Layout from "../components/layout"
-import Logo from "../components/logo"
 import ReceiptsAndInvoices from "../components/ReceiptsAndInvoices"
 import SEO from "../components/seo"
 import Terminal from "../components/home/Terminal"
 import Value from "../components/home/Value"
-import Contact from "../components/home/contact"
+import Contact from "../components/home/Contact"
 
 const VALUES = [
   {
