@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import { Button, Card, CardContent } from "@material-ui/core"
+import { Box, Button, Card, CardContent } from "@material-ui/core"
 
 import CompaniesList from "../components/home/Companies"
 import Layout from "../components/layout"
@@ -35,6 +35,8 @@ const VALUES = [
 
 const CallToAction = styled.div`
   color: black;
+  display: flex;
+  justify-content: center;
   margin: 2rem 1rem;
   text-align: center;
 `
@@ -85,6 +87,14 @@ const MB24 = styled.div`
   margin-bottom: 1.5rem;
 `
 
+const MB24SM60 = styled.div`
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 600px) {
+    margin-bottom: 5rem;
+  }
+`
+
 const MB32 = styled.div`
   margin-bottom: 2rem;
 `
@@ -112,9 +122,13 @@ const SubTitle = styled.div`
 `
 
 const Title = styled.div`
-  font-size: 4rem;
+  font-size: 3rem;
   padding: 2rem;
   text-align: center;
+
+  @media (min-width: 600px) {
+    font-size: 4rem;
+  }
 `
 
 const SubTitleBlack = styled.div`
@@ -155,13 +169,15 @@ const IndexPage = () => {
       <Content>
         <HeaderWrapper>
           <Title>Rapid prototype and workflow development</Title>
-          <MB60 />
+          <MB24SM60 />
 
           <SubTitle>
             We are a research first company the executes rapid prototypes and
             experimental workflows to accelerate your business.
           </SubTitle>
-          <Terminal />
+          <Box paddingLeft="1rem" paddingRight="1rem">
+            <Terminal />
+          </Box>
           <MB80 />
 
           <ContactButton color="primary" variant="contained">

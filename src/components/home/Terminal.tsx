@@ -10,6 +10,7 @@ const TerminalContent = styled.div`
   display: flex;
   padding: 1rem;
   padding-bottom: 5rem;
+  width: 100%;
 `
 
 const TerminalStart = styled.div`
@@ -36,7 +37,13 @@ const TerminalWrapper = styled.div`
   box-shadow: rgba(255, 255, 255, 0.8) 0px 0 163px 0px;
   display: flex;
   flex-direction: column;
-  width: 40rem;
+  min-width: 100%;
+  width: calc(100vw - 2rem);
+
+  @media (min-width: 600px) {
+    width: 40rem;
+    max-width: 40rem;
+  }
 `
 
 export default function Terminal(): JSX.Element {

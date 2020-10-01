@@ -6,13 +6,19 @@ import Img from "gatsby-image"
 const Company = styled.div<{ white?: boolean }>`
   background-color: ${({ white }) => (white ? "white" : "unset")};
   max-width: 8rem;
-  margin: 1rem 4rem;
+  margin: 1rem 0.5rem;
+  width: 8rem;
+
+  @media (min-width: 600px) {
+    margin: 1rem 4rem;
+  }
 `
 
 const CompanyInnerWrapper = styled.div`
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   max-width: 70rem;
 `
 
@@ -21,7 +27,6 @@ const CompanyWrapper = styled.div`
   flex-wrap: wrap;
   height: auto;
   justify-content: center;
-  margin: 0 8rem;
 `
 
 const StyledImg = styled(Img)`

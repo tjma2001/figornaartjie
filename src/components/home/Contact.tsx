@@ -57,7 +57,6 @@ const StyledCardContent = styled(CardContent)`
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  padding: 2rem;
 `
 
 const InnerLogoWrapper = styled.div`
@@ -81,8 +80,6 @@ const SuccessWrapper = styled.div`
 `
 
 const Wrapper = styled.div`
-  margin-left: auto;
-  margin-right: auto;
   max-width: 70rem;
 
   @media (min-width: 600px) {

@@ -28,8 +28,7 @@ const Footer = styled.footer`
   display: flex;
   flex-flow: row wrap;
   font-size: 0.75rem;
-  height: 1.5rem;
-  min-height: 1.6rem;
+  height: auto;
   justify-content: center;
   padding: 0.25rem 1.25rem;
 `
