@@ -53,5 +53,12 @@
     "companyDescription": "HouseME is the digital rental specialist, offering a better way to rent, loved by landlords and tenants.",
     "workDescription": "Frontend React development.",
     "src": "./work-images/houseme.png"
+  },
+  {
+    "name": "Vinex",
+    "duration": "8 months",
+    "companyDescription": "Vinex is an online wine exchange.",
+    "workDescription": "Frontend React development. Backend NodeJS development",
+    "src": "./work-images/vinex.png"
   }
 ]
