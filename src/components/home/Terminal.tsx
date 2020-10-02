@@ -33,8 +33,9 @@ const TerminalTitleBar = styled.div`
 `
 
 const TerminalWrapper = styled.div`
+  background-color: black;
   border-radius: 6px;
-  box-shadow: rgba(255, 255, 255, 0.8) 0px 0 163px 0px;
+  box-shadow: rgba(255, 255, 255, 0.8) 0px 0 35px 0px;
   display: flex;
   flex-direction: column;
   min-width: 100%;

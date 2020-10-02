@@ -13,9 +13,9 @@ const HeaderLeft = styled.div`
 
 const HeaderWrapper = styled.div`
   align-items: center;
-  background-color: black;
   display: flex;
   flex-direction: column;
+  height: 50px;
   justify-content: space-between;
   padding: 0 0 0.5rem 0.5rem;
   width: 100%;
@@ -30,7 +30,7 @@ const Links = styled.div`
   display: flex;
   height: 100%;
   min-height: 100%;
-  padding: 1rem;
+  padding: 0.5rem 1rem 0;
   text-decoration: none;
 `
 const LogoWrapper = styled.div`
@@ -43,7 +43,7 @@ const StyledButton = styled(Button)`
 `
 
 const StyledHeader = styled.div`
-  display: box;
+  width: 100%;
 `
 
 const StyledLink = styled(Link)`
@@ -56,8 +56,8 @@ const StyledLink = styled(Link)`
 
 const Header = ({ siteTitle }: { siteTitle: string }) => (
   <StyledHeader>
-    <HeaderWrapper>
-      <Hidden xsDown>
+    <Hidden xsDown>
+      <HeaderWrapper>
         <HeaderLeft>
           <LogoWrapper>
             <Logo />
@@ -66,14 +66,14 @@ const Header = ({ siteTitle }: { siteTitle: string }) => (
             <StyledLink to="/">{siteTitle}</StyledLink>
           </h1>
         </HeaderLeft>
-      </Hidden>
 
-      <Links>
-        <StyledButton color="primary" href="#contact" variant="contained">
-          Contact
-        </StyledButton>
-      </Links>
-    </HeaderWrapper>
+        <Links>
+          <StyledButton color="primary" href="#contact" variant="contained">
+            Contact
+          </StyledButton>
+        </Links>
+      </HeaderWrapper>
+    </Hidden>
   </StyledHeader>
 )
 

@@ -1,14 +1,16 @@
 import React from "react"
 import styled from "styled-components"
-import { Box, Button, Card, CardContent } from "@material-ui/core"
+import { Box, Button, Card, CardContent, Hidden } from "@material-ui/core"
 
 import CompaniesList from "../components/home/Companies"
+import header from "../components/header"
 import Layout from "../components/layout"
 import ReceiptsAndInvoices from "../components/ReceiptsAndInvoices"
 import SEO from "../components/seo"
 import Terminal from "../components/home/Terminal"
 import Value from "../components/home/Value"
 import Contact from "../components/home/Contact"
+import { graphql, useStaticQuery } from "gatsby"
 
 const VALUES = [
   {
@@ -19,15 +21,15 @@ const VALUES = [
   },
   {
     content:
-      "Outsource research tasks to us for concise reporting that will empower your organization and allow you to stay focused. Don’t spend your organization’s precious resources on tasks that are not part of your core business offering",
+      "Are keeping up with best practices? Do you need to know how to improve your workflows and boost productivity? Our audits provide you with actionable insights that will empower you to make better decisions.",
     image: "research",
-    title: "Research driven",
+    title: "Get actionable insights",
   },
   {
     content:
       "Eliminate wasted opportunity costs that take dedicated resources off task by focussing on what you do best. Reduce costs and time to market by ensuring that your core team is always on track. We will handle everything else.",
     image: "time",
-    title: "Save time",
+    title: "Get to market quickly",
   },
 ]
 
@@ -40,7 +42,8 @@ const CallToAction = styled.div`
 `
 
 const ContactButton = styled(Button)`
-  font-size: 2rem;
+  font-size: 1.5rem;
+  padding: 0.125rem 0.75rem;
   text-transform: none;
 `
 
@@ -68,13 +71,16 @@ const CompaniesWrapper = styled.div`
 
 const CompaniesTitleText = styled.div`
   font-size: 1.5rem;
-  font-weight: 500;
   text-align: center;
+`
+
+const Header = styled(header)`
+  width: 100%;
 `
 
 const HeaderWrapper = styled.div`
   align-items: center;
-  background-color: black !important;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzI4MjgyOCI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNC4zIiByPSIxLjgiIGZpbGw9IiMzOTM5MzkiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIzIiBjeT0iMyIgcj0iMS44IiBmaWxsPSJibGFjayI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjEwLjUiIGN5PSIxMi41IiByPSIxLjgiIGZpbGw9IiMzOTM5MzkiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMC41IiBjeT0iMTEuMyIgcj0iMS44IiBmaWxsPSJibGFjayI+PC9jaXJjbGU+Cjwvc3ZnPg==");
   display: flex;
   flex-direction: column;
   padding-bottom: 2rem;
@@ -112,11 +118,21 @@ const MB80 = styled.div`
 const SubTitle = styled.div`
   font-size: 1.5rem;
   line-height: 2rem;
-  margin-bottom: 8rem;
+  margin-bottom: 3rem;
   margin-left: auto;
   margin-right: auto;
   max-width: 60rem;
+  padding: 0 1rem;
   text-align: center;
+
+  @media (min-width: 600px) {
+    margin-bottom: 8rem;
+  }
+`
+const SubTitleBlack = styled.div`
+  color: black;
+  font-size: 3.5rem;
+  font-weight: 600;
 `
 
 const Title = styled.div`
@@ -127,12 +143,6 @@ const Title = styled.div`
   @media (min-width: 600px) {
     font-size: 4rem;
   }
-`
-
-const SubTitleBlack = styled.div`
-  color: black;
-  font-size: 3.5rem;
-  font-weight: 600;
 `
 
 const Values = styled.div`
@@ -149,7 +159,7 @@ const ValueWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 8rem;
+  padding: 0 1rem;
 `
 
 const Announcement = (): JSX.Element => (
@@ -161,31 +171,44 @@ const Announcement = (): JSX.Element => (
 )
 
 const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
   return (
     <Layout>
       <SEO title="Home" />
       <Content>
         <HeaderWrapper>
-          <Title>Rapid prototype and workflow development</Title>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <Title>Turn your big ideas into code quickly</Title>
           <MB24SM60 />
 
           <SubTitle>
             We are a research first company the executes rapid prototypes and
-            experimental workflows to accelerate your business.
+            experimental workflows to accelerate your business
           </SubTitle>
-          <Box paddingLeft="1rem" paddingRight="1rem">
-            <Terminal />
-          </Box>
-          <MB80 />
+          <Hidden xsDown>
+            <Box paddingLeft="1rem" paddingRight="1rem">
+              <Terminal />
+            </Box>
+            <MB80 />
+          </Hidden>
 
-          <ContactButton color="primary" variant="contained">
-            Contact us
+          <ContactButton color="primary" href="#contact" variant="contained">
+            Get started now
           </ContactButton>
           <MB60 />
 
           <Companies>
             <CompaniesTitleText>
-              We have helped some really great companies.
+              We have helped some really great companies
             </CompaniesTitleText>
             <MB24 />
             <CompaniesList />
@@ -194,7 +217,7 @@ const IndexPage = () => {
         <MB40 />
 
         <ValueWrapper>
-          <SubTitleBlack>We can help accelerate your business.</SubTitleBlack>
+          <SubTitleBlack>We accelerate business</SubTitleBlack>
           <MB80 />
           <Values>
             {VALUES.map((value, index) => (
@@ -215,8 +238,6 @@ const IndexPage = () => {
         </CompaniesWrapper>
 
         <CallToAction id="contact">
-          {/* Please <Link to="/contact">contact us</Link> if you are interested in
-          our services. We will be happy to answer any questions you might have. */}
           <Contact />
         </CallToAction>
 

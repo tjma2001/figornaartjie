@@ -60,8 +60,8 @@ export default function Companies(): JSX.Element {
     <CompanyWrapper>
       <CompanyInnerWrapper>
         {companies.map(
-          (company: { name: string; src: any }): JSX.Element => (
-            <Company white={company.name === "Sensor networks"}>
+          (company: { name: string; src: any }, index: number): JSX.Element => (
+            <Company white={company.name === "Sensor networks"} key={index}>
               {company.src && (
                 <StyledImg fluid={company.src.childImageSharp.fluid} />
               )}

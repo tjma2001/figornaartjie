@@ -10,7 +10,7 @@ const Content = styled.div`
   line-height: 1.5rem;
   text-align: justify;
   text-justify: inter-word;
-  width: 20rem;
+  width: 100%;
   max-width: 100%;
   padding: 0 0.5rem;
 

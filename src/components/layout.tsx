@@ -28,17 +28,28 @@ const Footer = styled.footer`
   display: flex;
   flex-flow: row wrap;
   font-size: 0.75rem;
-  height: auto;
+  height: 2.6rem;
   justify-content: center;
+  min-height: 2.6rem;
   padding: 0.25rem 1.25rem;
+
+  @media (min-width: 600px) {
+    height: 1.6rem;
+    min-height: 1.6rem;
+  }
 `
 
 const FooterContent = styled.div`
   text-align: justify;
   text-justify: inter-word;
+  height: 100%;
 `
 
-const Header = styled(header)``
+const Header = styled(header)`
+  position: absolute;
+  top: 0;
+  z-index: 100;
+`
 
 const StyledLink = styled.a`
   color: skyblue;
@@ -50,19 +61,20 @@ const Wrapper = styled.div`
   height: 100%;
   min-height: 100%;
   min-width: 100%;
+  position: relative;
   width: 100%;
 `
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `)
 
   return (
     <Wrapper>
@@ -72,7 +84,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           rel="stylesheet"
         />
       </Helmet>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <Content>{children}</Content>
       <Footer>
         <FooterContent>

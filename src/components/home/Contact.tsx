@@ -1,8 +1,13 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-
 import { Button, TextField, SvgIcon, CardContent } from "@material-ui/core"
-import Logo from "../logo"
+import {
+  DatePicker,
+  KeyboardDatePicker,
+  MuiPickersUtilsProvider,
+} from "@material-ui/pickers"
+import dayjs from "dayjs"
+import DateFnsUtils from "@date-io/date-fns"
 
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxCBgwjNaiIkqX38fOfTxCd_1L2kAckj9N4b5pTkE0NTKbQan-h/exec"
@@ -15,6 +20,7 @@ const ButtonWrapper = styled.div`
   align-items: flex-end;
   display: flex;
   flex-direction: column;
+  width: 100%;
 `
 
 const Blurb = styled.div`
@@ -26,8 +32,17 @@ const Blurb = styled.div`
 `
 
 const ContactButton = styled(Button)`
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-transform: none;
+  padding: 0.25rem 0.75rem;
+`
+
+const FieldWrapper = styled.div`
+  width: 100%;
+
+  @media (min-width: 600px) {
+    width: 15rem;
+  }
 `
 
 const LogoWrapper = styled.div`
@@ -55,6 +70,7 @@ const StyledCardContent = styled(CardContent)`
 `
 
 const StyledForm = styled.form`
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
 `
@@ -99,6 +115,10 @@ const SucessSubmitElement = (): JSX.Element => (
 )
 
 export default function Contact(): JSX.Element {
+  const [budget, setBudget] = useState<undefined | number>(0)
+  const [dueDate, setDueDate] = useState<Date>(
+    dayjs(new Date()).add(1, "month").set("day", 0).set("hour", 0).toDate()
+  )
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
   const [name, setName] = useState("")
@@ -110,8 +130,10 @@ export default function Contact(): JSX.Element {
   ): Promise<void> => {
     const scriptURL = SCRIPT_URL
     const form = new FormData()
-    form.append("name", name)
+    form.append("budget", budget?.toString() ?? "")
+    form.append("dueDate", dayjs(dueDate).format("DD-MMM-YYYY"))
     form.append("email", email)
+    form.append("name", name)
     form.append("message", message)
 
     try {
@@ -139,37 +161,72 @@ export default function Contact(): JSX.Element {
       {!submitSuccess && (
         <StyledCardContent>
           <StyledForm>
-            <Blurb>
-              Use the contact form below to get intouch with us and see how we
-              can help your business.
-            </Blurb>
+            <Blurb>Send us your ideas and we'll launch together</Blurb>
             <TextField
-              label="Name"
+              fullWidth
+              label="*Name"
               name="Name"
               onChange={e => setName(e.target.value)}
               value={name}
             />
-            <MB40 />
+            <MB24 />
 
             <TextField
-              label="Email"
+              fullWidth
+              label="*Email"
               name="Email"
               onChange={e => setEmail(e.target.value)}
               value={email}
             />
-            <MB40 />
+            <MB24 />
+
+            <FieldWrapper>
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <KeyboardDatePicker
+                  disableToolbar
+                  format="dd/MM/yyyy"
+                  fullWidth
+                  id="date-picker-inline"
+                  label="Estimated due date"
+                  KeyboardButtonProps={{
+                    "aria-label": "change date",
+                  }}
+                  margin="normal"
+                  onChange={e =>
+                    setDueDate(dayjs((e as unknown) as string).toDate())
+                  }
+                  value={dueDate}
+                  variant="inline"
+                />
+              </MuiPickersUtilsProvider>
+            </FieldWrapper>
+            <MB24 />
+
+            <FieldWrapper>
+              <TextField
+                fullWidth
+                label="Estimated budget"
+                name="Budget"
+                onChange={e => setBudget(Number(e.target.value))}
+                onFocus={event => event.target.select()}
+                type="number"
+                value={budget}
+              />
+            </FieldWrapper>
+            <MB24 />
 
             <TextField
-              label="Message"
-              helperText={`${message.length}/10`}
               error={message.length > 0 && message.length < 10}
+              fullWidth
+              label="*Message"
+              helperText={message.length > 10 ? "" : `${message.length}/10`}
               multiline
               name="Message"
               onChange={e => setMessage(e.target.value)}
               rows={4}
               value={message}
             />
-            <MB40 />
+            <MB24 />
 
             <ButtonWrapper>
               <ContactButton
@@ -180,10 +237,10 @@ export default function Contact(): JSX.Element {
                 }}
                 variant="contained"
               >
-                Contact{" "}
+                Contact
               </ContactButton>
               <MB16 />
-              <div>All fields should be filled in for the form to be valid</div>
+              <div>* means the field is required</div>
             </ButtonWrapper>
           </StyledForm>
         </StyledCardContent>
