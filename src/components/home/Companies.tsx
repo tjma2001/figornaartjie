@@ -7,7 +7,7 @@ const Company = styled.div<{ white?: boolean }>`
   background-color: ${({ white }) => (white ? "white" : "unset")};
   max-width: 8rem;
   margin: 1rem 0;
-
+  height: 3.2rem;
   width: 8rem;
 
   @media (min-width: 600px) {
@@ -32,6 +32,7 @@ const CompanyWrapper = styled.div`
 `
 
 const StyledImg = styled(Img)`
+  height: 3.2rem;
   width: 8rem;
 `
 

@@ -9,7 +9,8 @@ const StyledTyped = styled(Typed)`
 const TerminalContent = styled.div`
   display: flex;
   padding: 1rem;
-  padding-bottom: 5rem;
+  height: 8rem;
+  min-height: 8rem;
   width: 100%;
 `
 
@@ -35,7 +36,7 @@ const TerminalTitleBar = styled.div`
 const TerminalWrapper = styled.div`
   background-color: black;
   border-radius: 6px;
-  box-shadow: rgba(255, 255, 255, 0.8) 0px 0 35px 0px;
+  box-shadow: rgba(255, 255, 255, 0.8) 0px 0 0px 0px;
   display: flex;
   flex-direction: column;
   min-width: 100%;
@@ -48,25 +49,18 @@ const TerminalWrapper = styled.div`
 `
 
 export default function Terminal(): JSX.Element {
-  const options = {
-    strings: ["<i>First</i> sentence.", "&amp; a second sentence."],
-    typeSpeed: 40,
-  }
-
   return (
     <TerminalWrapper>
       <TerminalTitleBar>figornaartjie - bash - 640x10</TerminalTitleBar>
       <TerminalContent>
         <TerminalStart>$</TerminalStart>
         <StyledTyped
-          backDelay={2000}
+          backDelay={5000}
           loop
           strings={[
-            "npm run tests",
-            "docker-compose up --force-recreate",
-            "kubectl exec -it webserver -- /bin/bash",
-            "./run.sh -e DEVELOPMENT=true",
+            "start new project^1000<br /> deploying to test network...^1200<br /> applying user insights...^1500 <br /> launching to production",
           ]}
+          typeSpeed={40}
         />
       </TerminalContent>
     </TerminalWrapper>
