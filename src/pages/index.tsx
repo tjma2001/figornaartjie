@@ -201,7 +201,7 @@ const IndexPage = () => {
           <MB24SM60 />
 
           <SubTitle>
-            We are a research first company the executes rapid prototypes and
+            We are a research first company that executes rapid prototypes and
             experimental workflows to accelerate your business
           </SubTitle>
           <Hidden xsDown>
