@@ -60,5 +60,17 @@
     "companyDescription": "Vinex is an online wine exchange.",
     "workDescription": "Frontend React development. Backend NodeJS development",
     "src": "./work-images/vinex.png"
+  }, {
+    "name": "Miggster",
+    "duration": "2 years",
+    "companyDescription": "Miggster is an webbased mobile game company",
+    "workDescription": "Frontend React development. Backend NodeJS development",
+    "src": "./work-images/miggster.png"
+  }, {
+    "name": "Streamplay Studios",
+    "duration": "2 years",
+    "companyDescription": "Streamplay studios is a game streaming and html5 game platform",
+    "workDescription": "Backend development and webrtc streaming architect",
+    "src": "./work-images/streamplay.png"
   }
 ]
